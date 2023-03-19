@@ -1,3 +1,14 @@
+import mysql.connector
+
+mydb = mysql.connector.connect(
+  host="localhost",
+  user="root",
+  password="root",
+  database="blog"
+)
+
+mycursor = mydb.cursor()
+
 tarefas = []
 codigo = 1
 
@@ -11,29 +22,37 @@ while codigo != FINALIZAR:
     codigo = int(input("digite o codigo: "))
 
     if codigo == ADICIONAR:
-        tarefa = input("Digite a Tarefa: ")
-        tarefas.append(tarefa)
-        print(tarefas)
+        descricao = input("Digite a Tarefa: ")
+        mycursor.execute("INSERT INTO tarefas (descricao) VALUES (%s)", [descricao])
+        mydb.commit()
 
     elif codigo == EXCLUIR:
-        tarefa = input("\nDigite a tarefa: ")
-        tarefas.remove(tarefa)
-        print(tarefas)
+        descricao = input("\nDigite a tarefa: ")
+
+        mycursor.execute("DELETE FROM tarefas WHERE descricao = %s", [descricao])
+        mydb.commit()
 
     elif codigo == EDITAR:
 
-        tarefa = input("Digite a tarefa: \n")
-        nova_tarefa = input("\nDigite a Nova tarefa: ")
-    
-        index = tarefas.index(tarefa)
-        tarefas[index] = nova_tarefa
-        print(tarefas)
+        descricao = input("Digite a tarefa: \n")
+        nova_descricao = input("\nDigite a Nova tarefa: ")
+
+        mycursor.execute("UPDATE tarefas SET descricao = %s WHERE descricao = %s", [nova_descricao, descricao])
+
+        mydb.commit()
+
+        print(mycursor.rowcount, "record(s) affected")
 
     elif codigo == LISTAR:
         print('----------------')
-        n = len(tarefas)
-        for i in range(n):
-            print(tarefas[i])
+        mycursor.execute("SELECT * FROM tarefas")
+
+        tarefas = mycursor.fetchall()
+
+        for tarefa in tarefas:
+            print(tarefa[1])
+
+        print('----------------')
 
         total = len(tarefas)
         print(f'\nForam encontrados: {total}\n')

@@ -1,0 +1,11 @@
+print("\nTESTANDO HIERARQUIA\n")
+print("\n12 = 5 /2 é igual á: ",12 + 5 / 2)
+print("É Diferente de (12 + 5) /2 que é igual á: ",(12 + 5) / 2,"Logo tem HIERARQUIA MAIOR do que + ou -")
+print("\n64**1/4 é igual á: ",64**1/4)
+print("É diferente de 64 ** (1/4) que é igual á: ",64**(1/4),"logo ** tem HIERARQUIA MOIOR do que * ou / " )
+print("\n\n3 * 7 % 5 é igual á: ", 3*7 %5)
+print("É diferente de (3 * 7) % 5 que é igual á: ", (3*7) % 5,"logo tem HIERARQUIA MAIOR do que *")
+print("\n\n3 * 7 div 5: ", 3*7 / 5)
+print("É diferente de (3 * 7) div 5 que é igual á: ", (3*7 / 5),"logo tem HIERARQUIA MAIOR do que * ou /")
+print("\n")
+
