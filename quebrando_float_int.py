@@ -2,7 +2,7 @@
 teclado e mostre na tela a sua porção Inteira."""
 
 import math
-numero = float(input("\nDigite um numero Real: "))
+numero = float(input("\nDigite um numero Real com ponto: "))
 print ("O numero inteiro é: {}".format(math.trunc(numero)))
 
 # ou
