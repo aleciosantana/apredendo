@@ -1,4 +1,3 @@
-
 """criando um algoritimo que leia o numero e imprima o 
 seu dobro, o triplo e a raiz quadrada"""
 
