@@ -9,6 +9,5 @@ if (distancia >= 200 ):
     print("\nSua viagem custará R${:.2f}".format(acima))
 else:
     print("\nSua viagem custará R${:.2f}".format(abaixo))
-print("\n")
 
 '''simplificado "preco = distancia * 0.45 if distancia >= 200 else distancia * 0.50"'''
